@@ -1,7 +1,8 @@
 # XO-Game
 XO game where you can play against another human, the computer, or simulate a random game
+Computer plays with strategy to win or force a draw.
 Commands to be used with the command prompt using XOmain.py
-Command                      Description
+Command          -----            Description
 
 Human Game       -----            Start a two player game
 
