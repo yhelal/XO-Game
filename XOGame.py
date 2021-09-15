@@ -160,6 +160,39 @@ def tactic_opposite_corner(b):
     return try_to_take(b, l)
 
 
+def tactic_fork(b):
+    l = []
+    if h1.count('x') == 1 and h1.count('_') == 2:
+        if v1.count('x') == 1 and v1.count('_') == 2:
+            l.append(0)
+        if v3.count('x') == 1 and v3.count('_') == 2:
+            l.append(2)
+        if d1.count('x') == 1 and d1.count('_') == 2:
+            l.append(0)
+        if d2.count('x') == 1 and d2.count('_') == 2:
+            l.append(2)
+    if h3.count('x') == 1 and h3.count('_') == 2:
+        if v1.count('x') == 1 and v1.count('_') == 2:
+            l.append(6)
+        if v3.count('x') == 1 and v3.count('_') == 2:
+            l.append(8)
+        if d1.count('x') == 1 and d1.count('_') == 2:
+            l.append(8)
+        if d2.count('x') == 1 and d2.count('_') == 2:
+            l.append(6)
+    if d1.count('x') == 1 and d1.count('_') == 2:
+        if v1.count('x') == 1 and v1.count('_') == 2:
+            l.append(0)
+        if v3.count('x') == 1 and v3.count('_') == 2:
+            l.append(8)
+    if d2.count('x') == 1 and d2.count('_') == 2:
+        if v1.count('x') == 1 and v1.count('_') == 2:
+            l.append(2)
+        if v3.count('x') == 1 and v3.count('_') == 2:
+            l.append(6)
+    return try_to_take(b, l)
+
+
 def computer_move(b):
     print('Computer has played: ')
     if tactic_win(b):
@@ -168,17 +201,20 @@ def computer_move(b):
     if tactic_block(b):
         print('Used tactic_block)')
         return
+    if tactic_fork(b):
+        print('Used tactic_fork')
+        return
     if tactic_play_centre(b):
         print('Used tactic_centre')
+        return
+    if tactic_opposite_corner(b):
+        print('Used tactic_opposite_corner')
         return
     if tactic_empty_corner(b):
         print('Used tactic_empty_corner')
         return
     if tactic_empty_sides(b):
         print('Used tactic_empty_sides')
-        return
-    if tactic_opposite_corner(b):
-        print('Used tactic_opposite_corner')
         return
     print('No tactic applied: error in tactic implementations')
 
@@ -211,10 +247,10 @@ def human_vs_computer_game(b):
             player = 'h'
 
 
-# board = empty_board
+board = empty_board
 # random_game(board)
 # human_game(board)
-#human_vs_computer_game(board)
+human_vs_computer_game(board)
 
 
 
