@@ -211,7 +211,7 @@ def human_vs_computer_game(b):
             player = 'h'
 
 
-board = empty_board
+# board = empty_board
 # random_game(board)
 # human_game(board)
 #human_vs_computer_game(board)
